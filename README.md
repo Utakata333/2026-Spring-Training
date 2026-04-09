@@ -41,6 +41,7 @@ learning/
 ## 📝 提交规范
 
 - 提交文件格式仅限 `.md`。
+- 请自行学习markdown语法，这里提供一个学习链接：https://markdown.com.cn/basic-syntax/
 - 文件名统一为 `年级-方向-id-姓名.md`。
 - 请按所属方向提交到对应的 `submissions/` 目录。
 - 示例：`Web/submissions/25-web-Jatopos-xxx.md`
@@ -61,6 +62,49 @@ learning/
 
 ```python
 print("hello, world")
+```
+
+示例模板（大家参考就好，可以根据自己的情况修改，但是一定要具有格式化的Markdown语法）：
+
+```
+# Writeup 标题
+- ID:your_id
+- 方向：Cry / Misc / Pwn / Re / Web
+- 日期：YYYY-MM-DD
+- 平台/来源：CTFd / HackTheBox / AttackDefense / 其他
+- 题目名称：Example Challenge
+- 分类与分值：Web / 200 pts（难度：Medium）
+- 题目链接/附件：<题目链接或附件说明>
+
+## 目标与范围
+- 靶机/远程地址：<host:port 或 docker>
+- 漏洞类型：例如 SQLi / XSS / BOF / 逻辑漏洞
+- 约束与规则：仅在授权范围内操作，避免影响真实生产环境
+
+## 环境与依赖
+- 操作系统：Windows / Linux / macOS
+- 工具与版本：pwntools 4.x / nmap 7.x / BurpSuite / Ghidra / sqlmap / IDA Free 等
+- 语言与版本：Python 3.10 / GCC 12 / Node.js 20
+- 复现实验：提供启动/连接方式（如 docker、nc、ssh、HTTP）
+
+## 解题过程
+1. 信息收集与初步分析
+2. 漏洞定位与可利用性验证
+3. 构造 Payload / Exploit 步骤
+4. 拿到 Flag 的过程（如需，flag 内容可脱敏为 `flag{redacted}`）
+5. 常见坑与绕过技巧
+
+## 关键代码
+```python
+# Pwn 示例：使用 pwntools 连接并构造溢出
+from pwn import *
+context.log_level = 'info'
+# r = process('./vuln')  # 本地调试
+# 或远程：
+# r = remote('challenge.host', 31337)
+payload = b'A' *  cyclic_find(b'aaaa') + p64(0xdeadbeef)
+# r.sendline(payload)
+# r.interactive()
 ```
 
 ## 🔄 PR 规则
