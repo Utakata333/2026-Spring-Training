@@ -41,7 +41,7 @@ learning/
 ## 📝 提交规范
 
 - 提交文件格式仅限 `.md`。
-- 文件名统一为 `ID.md`，其中 `ID` 为个人 ID。
+- 文件名统一为 `年级-方向-id-姓名.md`。
 - 请按所属方向提交到对应的 `submissions/` 目录。
 - 示例：`Web/submissions/25-web-Jatopos-xxx.md`
 
